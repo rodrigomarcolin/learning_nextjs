@@ -1,3 +1,14 @@
+# Studies
+Projeto que fiz seguindo o curso [React: escrevendo com TypeScript](https://cursos.alura.com.br/course/react-modernizando-escrever-typescript) da Alura.
+
+Nele, o foco foi aprender os fundamentos e o funcionamento do TypeScript. Aprendi como funcionam as interfaces e a importância da tipagem, bem como a diferença entre os _Function Components_ e os _Class Components_, reforçando meu conhecimento em React Hooks para componentes funcionais (notadamente o _useEffect_ e o _useState_).
+
+Esse projeto web te permite criar tarefas, definindo o nome e o tempo que você quer gastar nelas. Você pode então selecionar quais das tarefas você quer realizar, e iniciar o cronômetro regressivo. Você pode pausar quando quiser. 
+Quando o cronômetro chega a zero, a tarefa é marcada como realizada.
+
+O estilo (.scss) foi totalmente copiado do curso, pois o foco deste projeto era a lógica com TypeScript. Melhorei o comportamento do meu projeto em relação ao do curso! Nesta versão, as tarefas podem ser pausadas, e seu tempo é atualizado para o que restava antes da pausa.
+
+---------------------------------------------
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
