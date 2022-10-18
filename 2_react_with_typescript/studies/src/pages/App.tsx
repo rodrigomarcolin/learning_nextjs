@@ -18,6 +18,17 @@ function App() {
     setTarefas([...tarefas, tarefa])
   }
 
+  function concluiTarefa(tarefa: ITarefa) {
+    setTarefaSelecionada(undefined)
+    setTarefas(tarefasAntigas => tarefasAntigas.map(ta => {
+      return {
+        ...ta,
+        concluida: ta.id === tarefa.id ? true:ta.concluida,
+        selecionada: false
+      }
+    }))
+  }
+
   function atualizaTempoTarefa(tarefa: ITarefa) {
     setTarefas(tarefasAntigas => tarefasAntigas.map(ta => {
       return {
@@ -27,6 +38,10 @@ function App() {
     }))
   }
   function selecionaTarefa(tarefa: ITarefa) {
+    if (tarefa.concluida) {
+      return 
+    }
+    
     setTarefas(tarefasAntigas => tarefasAntigas.map(ta => {
       return {
         ...ta, 
@@ -46,6 +61,7 @@ function App() {
       <Cronometro
         tarefa={tarefaSelecionada}
         atualizaTempoTarefa={atualizaTempoTarefa}
+        concluiTarefa={concluiTarefa}
       />
     </div>
   );

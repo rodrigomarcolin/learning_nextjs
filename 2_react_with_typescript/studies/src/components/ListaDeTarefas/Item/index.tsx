@@ -6,20 +6,16 @@ interface ItemProps extends ITarefa {
 }
 const Item = ({tarefa, tempo, selecionada, concluida, id, selecionaTarefa} : ItemProps) => {
 
-  let classes : string[] = []
-
-  if (selecionada) {
-    classes.push(styles.itemSelecionado)
-  }
   return (
 
       <li 
         key={tarefa}
-        className={` ${styles.item} ${selecionada ? styles.selecionado : ''}`} 
+        className={` ${styles.item} ${selecionada ? styles.selecionado : ''} ${concluida ? styles.itemCompletado : ''}`} 
         onClick={() => selecionaTarefa({tarefa, tempo, selecionada, concluida, id})}  
       >
         <h3>{tarefa}</h3>
         <p>{tempo}</p>
+        <div className={`${concluida ? styles.concluido : ''}`}></div>
       </li>
   )
 }

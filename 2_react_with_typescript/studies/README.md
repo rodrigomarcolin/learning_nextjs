@@ -8,6 +8,7 @@ Quando o cronômetro chega a zero, a tarefa é marcada como realizada.
 
 O estilo (.scss) foi totalmente copiado do curso, pois o foco deste projeto era a lógica com TypeScript. Melhorei o comportamento do meu projeto em relação ao do curso! Nesta versão, as tarefas podem ser pausadas, e seu tempo é atualizado para o que restava antes da pausa.
 
+**A versão do node utilizada para este projeto foi a v16.10**
 ---------------------------------------------
 # Getting Started with Create React App
 

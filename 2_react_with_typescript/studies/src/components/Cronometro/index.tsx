@@ -7,9 +7,11 @@ import React, { useEffect, useState } from 'react';
 
 interface CronometroProps {
   tarefa: ITarefa | undefined,
-  atualizaTempoTarefa: (tarefa: ITarefa) => void
+  atualizaTempoTarefa: (tarefa: ITarefa) => void,
+  concluiTarefa: (tarefa: ITarefa) => void
 }
-const Cronometro = ({tarefa, atualizaTempoTarefa} : CronometroProps) => {
+
+const Cronometro = ({tarefa, atualizaTempoTarefa, concluiTarefa} : CronometroProps) => {
   let [tempo, setTempo] = useState<number>(0)
   let [running, setRunning] = useState<boolean>(false)
   let [intervalId, setIntervalId] = useState<NodeJS.Timer>()
@@ -26,6 +28,7 @@ const Cronometro = ({tarefa, atualizaTempoTarefa} : CronometroProps) => {
   }
 
   function paraCronometro() {
+    setRunning(false)
     if (intervalId) {
       clearInterval(intervalId)
       if (tarefa) {
@@ -38,6 +41,7 @@ const Cronometro = ({tarefa, atualizaTempoTarefa} : CronometroProps) => {
     }
   }
 
+  // Quando o botão é clicado, verifica se pausa ou despausa
   useEffect(() => {
     if (running && !intervalId) {
       regressiva()
@@ -49,10 +53,26 @@ const Cronometro = ({tarefa, atualizaTempoTarefa} : CronometroProps) => {
 
   }, [running, intervalId])
   
+  function conclui() {
+    paraCronometro()
+    if (tarefa)
+      concluiTarefa(tarefa)
+
+  }
+  // Quando o tempo muda, verifica se termina
+  useEffect(()=> {
+    console.log('tempo', tempo)
+    if (tempo < 1) {
+      conclui()
+    }
+  }, [tempo])
+  
   function regressiva() {
-    
-    const id = setInterval(() => setTempo((oldTempo) => oldTempo > 0 ? oldTempo - 1 : 0), 1000)
+    const id = setInterval(() =>{ 
+      setTempo((oldTempo) => oldTempo > 0 ? oldTempo - 1 : 0)
+    }, 1000)
     setIntervalId(id)
+
   }
 
   return (
