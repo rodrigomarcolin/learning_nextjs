@@ -1,0 +1,12 @@
+.myFooter {
+  background-color: #3c1371;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+  margin: 0px;
+  padding: 2rem;
+}
+
+.myFooter p {
+  margin: 0px;
+}

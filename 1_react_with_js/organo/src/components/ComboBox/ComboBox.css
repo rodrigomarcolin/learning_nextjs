@@ -1,0 +1,22 @@
+.campo label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.campo select {
+  padding: 0.5rem;
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: white;
+  -webkit-box-shadow: 1px 5px 23px 5px rgba(0,0,0,0.12); 
+  box-shadow: 1px 5px 23px 5px rgba(0,0,0,0.12);
+  box-sizing: border-box;
+}
+
+.campo input:focus {
+  outline: 1px solid blue;
+}
